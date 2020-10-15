@@ -1,0 +1,24 @@
+{
+  "name": "pokemon-app",
+  "version": "1.0.0",
+  "description": "Pokemon card info",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mobydack/pokemon-app.git"
+  },
+  "keywords": [
+    "pokemon",
+    "pokemon-card",
+    "pokeapi"
+  ],
+  "author": "Mobydack",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mobydack/pokemon-app/issues"
+  },
+  "homepage": "https://github.com/Mobydack/pokemon-app#readme"
+}
