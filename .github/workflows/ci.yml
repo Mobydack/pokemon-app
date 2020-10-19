@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches-ignore: [master]
+    # В master только делаем pull-request
+  pull_request:
+    branches: [master]
+    # Проверяем пулл риквесты в мастер
+
+jobs:
+  linting_code:
+    name: Linting code
+    container:
+      image: node:lts
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependency
+        run: npm ci
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: v1-npm-deps-${{ hashFiles('**/pacakge-lock.json') }}
+          restore-key: v1-npm-deps
+      - name: Create artifacts node modules
+        uses: actions/upload-artifact@v2
+        with:
+          name: node_modules
+          path: ./node_modules
+      - name: Run linting code
+        run: npm run lint:ci  
+  testing_code:
+    name: Testing code
+    container:
+      image: node:lts
+    needs: [linting_code]
+    steps:
+      - name: Use caching node modules
+        uses: action/download-artifact@v2
+          name: node_modules
+      - name: Run testing code
+        run: npm run test:ci
+

@@ -1,0 +1,15 @@
+{
+  "tabWidth": 4,
+  "singleQuote": true,
+  "quoteProps": "consistent",
+  "jsxSingleQuote": true,
+  "trailingComma": "all",
+  "overrides": [
+    {
+      "files": "*.json",
+      "options": {
+        "tabWidth": 2
+      }
+    }
+  ]
+}

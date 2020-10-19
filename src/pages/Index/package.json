@@ -1,0 +1,4 @@
+{
+    "description": "Main page",
+    "main": "./Index.tsx"
+}
